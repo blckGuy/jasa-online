@@ -9,13 +9,14 @@ import zianaaulia.polbeng.ac.id.jasaonline.helpers.Config
 import zianaaulia.polbeng.ac.id.jasaonline.helpers.Config.Companion.SPLASH_TIME_OUT
 
 class SplashScreenActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        }, SPLASH_TIME_OUT)
+        },SPLASH_TIME_OUT)
 
     }
 }

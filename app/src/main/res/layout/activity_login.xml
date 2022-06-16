@@ -23,7 +23,7 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/moroccan" />
+                android:src="@drawable/technical" />
             <TextView
                 android:id="@+id/tvSignIn"
                 android:layout_width="wrap_content"
