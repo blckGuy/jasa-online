@@ -1,4 +1,4 @@
-package zianaaulia.polbeng.ac.id.jasaonline
+package zianaaulia.polbeng.ac.id.jasaonline.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +12,10 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import zianaaulia.polbeng.ac.id.jasaonline.R
+import zianaaulia.polbeng.ac.id.jasaonline.fragments.BerandaFragment
+import zianaaulia.polbeng.ac.id.jasaonline.fragments.JasaFragment
+import zianaaulia.polbeng.ac.id.jasaonline.fragments.ProfileFragment
 
 class MainActivity : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
@@ -24,8 +28,10 @@ class MainActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(
@@ -57,6 +63,7 @@ class MainActivity : AppCompatActivity(),
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.frame_layout, jasaFragment)
+
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
             }
@@ -74,12 +81,12 @@ class MainActivity : AppCompatActivity(),
                 builder.setMessage("Apakah anda yakin keluar dari akun saat ini?")
                 builder.setIcon(R.drawable.ic_baseline_exit_to_app_24)
                 builder.setPositiveButton("Ya") { dialog, _ -> dialog.dismiss()
-                    Snackbar.make(drawer_layout, "Anda klik ya!",
+                    Snackbar.make(drawerLayout, "Anda klik ya!",
                         Snackbar.LENGTH_LONG).show()
                 }
                 builder.setNegativeButton("Tidak"){dialog, _ ->
                     dialog.dismiss()
-                    Snackbar.make(drawer_layout, "Anda klik tidak!",
+                    Snackbar.make(drawerLayout, "Anda klik tidak!",
                         Snackbar.LENGTH_LONG).show()
                 }
                 val alertDialog: AlertDialog = builder.create()
